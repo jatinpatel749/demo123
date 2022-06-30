@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1758
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyEntity", "MyEntity\MyEntity.csproj", "{1FFE29D2-BDDD-4B7B-8DBA-6B96FC7B0464}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{9F060ACC-50C9-4B90-91E0-E1BD73CADEF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{4547C4E1-68A4-4473-891E-0CFD8C5A67B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarAPI", "CarAPI\CarAPI.csproj", "{921612ED-5CFA-4ACE-B0CD-EB0ECB3290FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication", "WebApplication\WebApplication.csproj", "{F3C30FDD-93B8-4907-A55C-62C24B192887}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dbScriptsAndSettings", "dbScriptsAndSettings", "{669F6C19-D9B4-4AE3-9579-AF219E9DF4E6}"
+	ProjectSection(SolutionItems) = preProject
+		dbScript.txt = dbScript.txt
+		TextFile1.txt = TextFile1.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FFE29D2-BDDD-4B7B-8DBA-6B96FC7B0464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FFE29D2-BDDD-4B7B-8DBA-6B96FC7B0464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FFE29D2-BDDD-4B7B-8DBA-6B96FC7B0464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FFE29D2-BDDD-4B7B-8DBA-6B96FC7B0464}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F060ACC-50C9-4B90-91E0-E1BD73CADEF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F060ACC-50C9-4B90-91E0-E1BD73CADEF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F060ACC-50C9-4B90-91E0-E1BD73CADEF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F060ACC-50C9-4B90-91E0-E1BD73CADEF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4547C4E1-68A4-4473-891E-0CFD8C5A67B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4547C4E1-68A4-4473-891E-0CFD8C5A67B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4547C4E1-68A4-4473-891E-0CFD8C5A67B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4547C4E1-68A4-4473-891E-0CFD8C5A67B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921612ED-5CFA-4ACE-B0CD-EB0ECB3290FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921612ED-5CFA-4ACE-B0CD-EB0ECB3290FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921612ED-5CFA-4ACE-B0CD-EB0ECB3290FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921612ED-5CFA-4ACE-B0CD-EB0ECB3290FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3C30FDD-93B8-4907-A55C-62C24B192887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3C30FDD-93B8-4907-A55C-62C24B192887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3C30FDD-93B8-4907-A55C-62C24B192887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3C30FDD-93B8-4907-A55C-62C24B192887}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {348E6E3A-F0F5-48A0-9D47-2D8C7FB39179}
+	EndGlobalSection
+EndGlobal

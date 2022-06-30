@@ -1,0 +1,201 @@
+USE [master]
+GO
+/****** Object:  Database [dbChintan]    Script Date: 29/6/2022 12:31:35 PM ******/
+CREATE DATABASE [dbChintan]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'dbChintan', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\dbChintan.mdf' , SIZE = 3072KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'dbChintan_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\dbChintan_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [dbChintan] SET COMPATIBILITY_LEVEL = 120
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [dbChintan].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [dbChintan] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [dbChintan] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [dbChintan] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [dbChintan] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [dbChintan] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [dbChintan] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [dbChintan] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [dbChintan] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [dbChintan] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [dbChintan] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [dbChintan] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [dbChintan] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [dbChintan] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [dbChintan] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [dbChintan] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [dbChintan] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [dbChintan] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [dbChintan] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [dbChintan] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [dbChintan] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [dbChintan] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [dbChintan] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [dbChintan] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [dbChintan] SET  MULTI_USER 
+GO
+ALTER DATABASE [dbChintan] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [dbChintan] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [dbChintan] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [dbChintan] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+ALTER DATABASE [dbChintan] SET DELAYED_DURABILITY = DISABLED 
+GO
+USE [dbChintan]
+GO
+/****** Object:  User [jiya]    Script Date: 29/6/2022 12:31:35 PM ******/
+CREATE USER [jiya] WITHOUT LOGIN WITH DEFAULT_SCHEMA=[dbo]
+GO
+/****** Object:  Table [dbo].[tblLogin]    Script Date: 29/6/2022 12:31:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tblLogin](
+	[UserId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NULL,
+	[EmailId] [varchar](50) NULL,
+	[Password] [varchar](50) NULL,
+	[MobileNo] [varchar](10) NULL,
+ CONSTRAINT [PK_tblLogin] PRIMARY KEY CLUSTERED 
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[tblVehicleDetails]    Script Date: 29/6/2022 12:31:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tblVehicleDetails](
+	[VehicleId] [int] IDENTITY(1,1) NOT NULL,
+	[OwnerId] [int] NULL,
+	[RegNo] [varchar](50) NULL,
+	[ModelNo] [varchar](50) NULL,
+	[MakeYear] [varchar](50) NULL,
+	[UserId] [int] NULL,
+ CONSTRAINT [PK_tblVehicleDetails] PRIMARY KEY CLUSTERED 
+(
+	[VehicleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[tblVehicleOwnerDetails]    Script Date: 29/6/2022 12:31:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[tblVehicleOwnerDetails](
+	[OwnerId] [int] IDENTITY(1,1) NOT NULL,
+	[OwnerName] [varchar](50) NULL,
+	[ContactNo] [varchar](50) NULL,
+	[Address] [varchar](200) NULL,
+	[City] [varchar](50) NULL,
+	[Pincode] [varchar](6) NULL,
+	[State] [varchar](50) NULL,
+	[Country] [varchar](50) NULL,
+ CONSTRAINT [PK_tblVehicleOwnerDetails] PRIMARY KEY CLUSTERED 
+(
+	[OwnerId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblLogin] ON 
+
+GO
+INSERT [dbo].[tblLogin] ([UserId], [Name], [EmailId], [Password], [MobileNo]) VALUES (4, N'jatin', N'jatinpatel749@gmail.com', N'123', N'9275100801')
+GO
+INSERT [dbo].[tblLogin] ([UserId], [Name], [EmailId], [Password], [MobileNo]) VALUES (1004, N'chintan', N'chintandesai.r@gmail.com', N'123', N'1234567890')
+GO
+SET IDENTITY_INSERT [dbo].[tblLogin] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblVehicleDetails] ON 
+
+GO
+INSERT [dbo].[tblVehicleDetails] ([VehicleId], [OwnerId], [RegNo], [ModelNo], [MakeYear], [UserId]) VALUES (2, 1, N'Rgno123', N'ModelNo123', N'2021', 4)
+GO
+INSERT [dbo].[tblVehicleDetails] ([VehicleId], [OwnerId], [RegNo], [ModelNo], [MakeYear], [UserId]) VALUES (3, 1, N'ABC111', N'9825498256', N'2018', 4)
+GO
+INSERT [dbo].[tblVehicleDetails] ([VehicleId], [OwnerId], [RegNo], [ModelNo], [MakeYear], [UserId]) VALUES (4, 1, N'reg4455', N'9988776655', N'2015', 4)
+GO
+INSERT [dbo].[tblVehicleDetails] ([VehicleId], [OwnerId], [RegNo], [ModelNo], [MakeYear], [UserId]) VALUES (5, 1, N'reg33', N'model123', N'2021', 4)
+GO
+INSERT [dbo].[tblVehicleDetails] ([VehicleId], [OwnerId], [RegNo], [ModelNo], [MakeYear], [UserId]) VALUES (6, 2, N'demo_reg', N'Model99', N'2019', 4)
+GO
+INSERT [dbo].[tblVehicleDetails] ([VehicleId], [OwnerId], [RegNo], [ModelNo], [MakeYear], [UserId]) VALUES (8, 2, N'rr12', N'mm12', N'2222', 4)
+GO
+SET IDENTITY_INSERT [dbo].[tblVehicleDetails] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblVehicleOwnerDetails] ON 
+
+GO
+INSERT [dbo].[tblVehicleOwnerDetails] ([OwnerId], [OwnerName], [ContactNo], [Address], [City], [Pincode], [State], [Country]) VALUES (1, N'Owner-1', N'9825098260', N'Adajan Area', N'Surat', N'396541', N'Gujarat', N'India')
+GO
+INSERT [dbo].[tblVehicleOwnerDetails] ([OwnerId], [OwnerName], [ContactNo], [Address], [City], [Pincode], [State], [Country]) VALUES (2, N'RaghuvirSinh', N'7788996655', N'Sama Savli Road', N'Vadodara', N'391244', N'Gujarat', N'Vadodara')
+GO
+INSERT [dbo].[tblVehicleOwnerDetails] ([OwnerId], [OwnerName], [ContactNo], [Address], [City], [Pincode], [State], [Country]) VALUES (3, N'jayanti', N'9876543210', N'vankar vas', N'CHANSAD', N'339977', N'GUJARAT', N'india')
+GO
+SET IDENTITY_INSERT [dbo].[tblVehicleOwnerDetails] OFF
+GO
+ALTER TABLE [dbo].[tblVehicleDetails]  WITH CHECK ADD  CONSTRAINT [FK_tblVehicleDetails_tblLogin] FOREIGN KEY([UserId])
+REFERENCES [dbo].[tblLogin] ([UserId])
+GO
+ALTER TABLE [dbo].[tblVehicleDetails] CHECK CONSTRAINT [FK_tblVehicleDetails_tblLogin]
+GO
+ALTER TABLE [dbo].[tblVehicleDetails]  WITH CHECK ADD  CONSTRAINT [FK_tblVehicleDetails_tblVehicleOwnerDetails] FOREIGN KEY([OwnerId])
+REFERENCES [dbo].[tblVehicleOwnerDetails] ([OwnerId])
+GO
+ALTER TABLE [dbo].[tblVehicleDetails] CHECK CONSTRAINT [FK_tblVehicleDetails_tblVehicleOwnerDetails]
+GO
+USE [master]
+GO
+ALTER DATABASE [dbChintan] SET  READ_WRITE 
+GO

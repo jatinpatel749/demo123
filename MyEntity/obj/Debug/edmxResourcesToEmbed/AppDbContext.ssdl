@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbChintanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="EmailId" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="tblVehicleDetails">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OwnerId" Type="int" />
+    <Property Name="RegNo" Type="varchar" MaxLength="50" />
+    <Property Name="ModelNo" Type="varchar" MaxLength="50" />
+    <Property Name="MakeYear" Type="varchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="tblVehicleOwnerDetails">
+    <Key>
+      <PropertyRef Name="OwnerId" />
+    </Key>
+    <Property Name="OwnerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OwnerName" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Pincode" Type="varchar" MaxLength="6" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tblVehicleDetails_tblLogin">
+    <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="0..1" />
+    <End Role="tblVehicleDetails" Type="Self.tblVehicleDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLogin">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="tblVehicleDetails">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblVehicleDetails_tblVehicleOwnerDetails">
+    <End Role="tblVehicleOwnerDetails" Type="Self.tblVehicleOwnerDetails" Multiplicity="0..1" />
+    <End Role="tblVehicleDetails" Type="Self.tblVehicleDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblVehicleOwnerDetails">
+        <PropertyRef Name="OwnerId" />
+      </Principal>
+      <Dependent Role="tblVehicleDetails">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbChintanModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblVehicleDetails" EntityType="Self.tblVehicleDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblVehicleOwnerDetails" EntityType="Self.tblVehicleOwnerDetails" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblVehicleDetails_tblLogin" Association="Self.FK_tblVehicleDetails_tblLogin">
+      <End Role="tblLogin" EntitySet="tblLogin" />
+      <End Role="tblVehicleDetails" EntitySet="tblVehicleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblVehicleDetails_tblVehicleOwnerDetails" Association="Self.FK_tblVehicleDetails_tblVehicleOwnerDetails">
+      <End Role="tblVehicleOwnerDetails" EntitySet="tblVehicleOwnerDetails" />
+      <End Role="tblVehicleDetails" EntitySet="tblVehicleDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

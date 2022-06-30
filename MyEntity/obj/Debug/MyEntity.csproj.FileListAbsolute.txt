@@ -1,0 +1,10 @@
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\bin\Debug\MyEntity.dll.config
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\bin\Debug\MyEntity.dll
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\bin\Debug\MyEntity.pdb
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\bin\Debug\EntityFramework.dll
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.csproj.CoreCompileInputs.cache
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.csproj.CopyComplete
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.dll
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.pdb
+C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.csprojAssemblyReference.cache

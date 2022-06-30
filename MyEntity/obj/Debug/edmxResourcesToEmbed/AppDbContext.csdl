@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbChintanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblVehicleDetails" Relationship="Self.FK_tblVehicleDetails_tblLogin" FromRole="tblLogin" ToRole="tblVehicleDetails" />
+  </EntityType>
+  <EntityType Name="tblVehicleDetail">
+    <Key>
+      <PropertyRef Name="VehicleId" />
+    </Key>
+    <Property Name="VehicleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerId" Type="Int32" />
+    <Property Name="RegNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MakeYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="tblLogin" Relationship="Self.FK_tblVehicleDetails_tblLogin" FromRole="tblVehicleDetails" ToRole="tblLogin" />
+    <NavigationProperty Name="tblVehicleOwnerDetail" Relationship="Self.FK_tblVehicleDetails_tblVehicleOwnerDetails" FromRole="tblVehicleDetails" ToRole="tblVehicleOwnerDetails" />
+  </EntityType>
+  <EntityType Name="tblVehicleOwnerDetail">
+    <Key>
+      <PropertyRef Name="OwnerId" />
+    </Key>
+    <Property Name="OwnerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pincode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblVehicleDetails" Relationship="Self.FK_tblVehicleDetails_tblVehicleOwnerDetails" FromRole="tblVehicleOwnerDetails" ToRole="tblVehicleDetails" />
+  </EntityType>
+  <Association Name="FK_tblVehicleDetails_tblLogin">
+    <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="0..1" />
+    <End Role="tblVehicleDetails" Type="Self.tblVehicleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLogin">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="tblVehicleDetails">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblVehicleDetails_tblVehicleOwnerDetails">
+    <End Role="tblVehicleOwnerDetails" Type="Self.tblVehicleOwnerDetail" Multiplicity="0..1" />
+    <End Role="tblVehicleDetails" Type="Self.tblVehicleDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblVehicleOwnerDetails">
+        <PropertyRef Name="OwnerId" />
+      </Principal>
+      <Dependent Role="tblVehicleDetails">
+        <PropertyRef Name="OwnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbChintanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tblLogins" EntityType="Self.tblLogin" />
+    <EntitySet Name="tblVehicleDetails" EntityType="Self.tblVehicleDetail" />
+    <EntitySet Name="tblVehicleOwnerDetails" EntityType="Self.tblVehicleOwnerDetail" />
+    <AssociationSet Name="FK_tblVehicleDetails_tblLogin" Association="Self.FK_tblVehicleDetails_tblLogin">
+      <End Role="tblLogin" EntitySet="tblLogins" />
+      <End Role="tblVehicleDetails" EntitySet="tblVehicleDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblVehicleDetails_tblVehicleOwnerDetails" Association="Self.FK_tblVehicleDetails_tblVehicleOwnerDetails">
+      <End Role="tblVehicleOwnerDetails" EntitySet="tblVehicleOwnerDetails" />
+      <End Role="tblVehicleDetails" EntitySet="tblVehicleDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
