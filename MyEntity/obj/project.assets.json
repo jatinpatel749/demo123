@@ -152,11 +152,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\MyEntity\\MyEntity.csproj",
+      "projectUniqueName": "H:\\GitRepo\\MyEntity\\MyEntity.csproj",
       "projectName": "MyEntity",
-      "projectPath": "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\MyEntity\\MyEntity.csproj",
+      "projectPath": "H:\\GitRepo\\MyEntity\\MyEntity.csproj",
       "packagesPath": "C:\\Users\\Omatics\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\MyEntity\\obj\\",
+      "outputPath": "H:\\GitRepo\\MyEntity\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

@@ -12,3 +12,17 @@ C:\Users\Omatics\source\demoProject\MyRepository\Repositories\obj\Debug\Reposito
 C:\Users\Omatics\source\demoProject\MyRepository\Repositories\obj\Debug\Repositories.csproj.CopyComplete
 C:\Users\Omatics\source\demoProject\MyRepository\Repositories\obj\Debug\Repositories.dll
 C:\Users\Omatics\source\demoProject\MyRepository\Repositories\obj\Debug\Repositories.pdb
+H:\GitRepo\Repositories\bin\Debug\Repositories.dll
+H:\GitRepo\Repositories\bin\Debug\Repositories.pdb
+H:\GitRepo\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+H:\GitRepo\Repositories\bin\Debug\EntityFramework.dll
+H:\GitRepo\Repositories\bin\Debug\Models.dll
+H:\GitRepo\Repositories\bin\Debug\MyEntity.dll
+H:\GitRepo\Repositories\bin\Debug\Models.pdb
+H:\GitRepo\Repositories\bin\Debug\MyEntity.pdb
+H:\GitRepo\Repositories\bin\Debug\MyEntity.dll.config
+H:\GitRepo\Repositories\obj\Debug\Repositories.csprojAssemblyReference.cache
+H:\GitRepo\Repositories\obj\Debug\Repositories.csproj.CoreCompileInputs.cache
+H:\GitRepo\Repositories\obj\Debug\Repositories.csproj.CopyComplete
+H:\GitRepo\Repositories\obj\Debug\Repositories.dll
+H:\GitRepo\Repositories\obj\Debug\Repositories.pdb

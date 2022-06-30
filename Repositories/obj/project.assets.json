@@ -252,11 +252,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\Repositories\\Repositories.csproj",
+      "projectUniqueName": "H:\\GitRepo\\Repositories\\Repositories.csproj",
       "projectName": "Repositories",
-      "projectPath": "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\Repositories\\Repositories.csproj",
+      "projectPath": "H:\\GitRepo\\Repositories\\Repositories.csproj",
       "packagesPath": "C:\\Users\\Omatics\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\Repositories\\obj\\",
+      "outputPath": "H:\\GitRepo\\Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -273,11 +273,11 @@
       "frameworks": {
         "net46": {
           "projectReferences": {
-            "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\Models\\Models.csproj"
+            "H:\\GitRepo\\Models\\Models.csproj": {
+              "projectPath": "H:\\GitRepo\\Models\\Models.csproj"
             },
-            "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\MyEntity\\MyEntity.csproj": {
-              "projectPath": "C:\\Users\\Omatics\\source\\demoProject\\MyRepository\\MyEntity\\MyEntity.csproj"
+            "H:\\GitRepo\\MyEntity\\MyEntity.csproj": {
+              "projectPath": "H:\\GitRepo\\MyEntity\\MyEntity.csproj"
             }
           }
         }

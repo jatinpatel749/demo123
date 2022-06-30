@@ -4,3 +4,8 @@ C:\Users\Omatics\source\demoProject\MyRepository\Models\obj\Debug\Models.csproj.
 C:\Users\Omatics\source\demoProject\MyRepository\Models\obj\Debug\Models.dll
 C:\Users\Omatics\source\demoProject\MyRepository\Models\obj\Debug\Models.pdb
 C:\Users\Omatics\source\demoProject\MyRepository\Models\obj\Debug\Models.csprojAssemblyReference.cache
+H:\GitRepo\Models\bin\Debug\Models.dll
+H:\GitRepo\Models\bin\Debug\Models.pdb
+H:\GitRepo\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+H:\GitRepo\Models\obj\Debug\Models.dll
+H:\GitRepo\Models\obj\Debug\Models.pdb

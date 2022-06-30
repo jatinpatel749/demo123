@@ -8,3 +8,13 @@ C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.csp
 C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.dll
 C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.pdb
 C:\Users\Omatics\source\demoProject\MyRepository\MyEntity\obj\Debug\MyEntity.csprojAssemblyReference.cache
+H:\GitRepo\MyEntity\bin\Debug\MyEntity.dll.config
+H:\GitRepo\MyEntity\bin\Debug\MyEntity.dll
+H:\GitRepo\MyEntity\bin\Debug\MyEntity.pdb
+H:\GitRepo\MyEntity\bin\Debug\EntityFramework.SqlServer.dll
+H:\GitRepo\MyEntity\bin\Debug\EntityFramework.dll
+H:\GitRepo\MyEntity\obj\Debug\MyEntity.csprojAssemblyReference.cache
+H:\GitRepo\MyEntity\obj\Debug\MyEntity.csproj.CoreCompileInputs.cache
+H:\GitRepo\MyEntity\obj\Debug\MyEntity.csproj.CopyComplete
+H:\GitRepo\MyEntity\obj\Debug\MyEntity.dll
+H:\GitRepo\MyEntity\obj\Debug\MyEntity.pdb
