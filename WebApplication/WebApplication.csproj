@@ -270,6 +270,7 @@
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\Vehicle\Details.cshtml" />
     <Content Include="Views\Vehicle\Search_.cshtml" />
+    <Content Include="Views\VehicleOwner\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

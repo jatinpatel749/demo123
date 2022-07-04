@@ -11,5 +11,7 @@ namespace Repositories.Interfaces
     {
         bool CreateVehicleOwnerDetails(VehicleOwnerDetailsModel model);
         IEnumerable<VehicleOwnerDetailsModel> GelAllVehicleOwnerDetails();
+        bool UpdateVehicleOwnerDetails(VehicleOwnerDetailsModel model);
+        VehicleOwnerDetailsModel GelVehicleOwnerDetailsByOwnerId(int OwnerId);
     }
 }

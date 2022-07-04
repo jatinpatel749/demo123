@@ -43,5 +43,31 @@ namespace CarAPI.Controllers
 
 
         }
+
+
+        [Route("api/VehicleOwnerDetail/UpdateVehicleOwnerDetails")]
+        [HttpPost]
+        public IHttpActionResult UpdateVehicleOwnerDetails(VehicleOwnerDetailsModel model)
+        {
+            bool result = _IVehicleOwnerDetailsRepository.UpdateVehicleOwnerDetails(model);
+
+            if (result)
+            {
+                return StatusCode(HttpStatusCode.Created);
+            }
+            else
+            {
+                //return StatusCode(StatusCodes.Status400BadRequest);
+                return StatusCode(HttpStatusCode.BadRequest);
+            }
+        }
+
+        [Route("api/VehicleOwnerDetail/GelVehicleOwnerDetailsByOwnerId")]
+        [HttpGet]
+        public VehicleOwnerDetailsModel GelVehicleOwnerDetailsByOwnerId(int OwnerId)
+        {
+            return _IVehicleOwnerDetailsRepository.GelVehicleOwnerDetailsByOwnerId(OwnerId);
+
+        }
     }
 }

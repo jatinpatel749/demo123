@@ -72,5 +72,39 @@ namespace Repositories.Impelmentations
             else
             { return null; }
         }
+
+        public VehicleOwnerDetailsModel GelVehicleOwnerDetailsByOwnerId(int OwnerId)
+        {
+            var value = _db.tblVehicleOwnerDetails.Where(t => t.OwnerId == OwnerId).FirstOrDefault();
+            if (value != null)
+            {                
+                return AutoMapper(value);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public bool UpdateVehicleOwnerDetails(VehicleOwnerDetailsModel model)
+        {
+            var _VehicleOwnerDetailsModel = _db.tblVehicleOwnerDetails.Where(t => t.OwnerId == model.OwnerId).FirstOrDefault();
+            if (_VehicleOwnerDetailsModel != null)
+            {
+                _VehicleOwnerDetailsModel.OwnerName = model.OwnerName;
+                _VehicleOwnerDetailsModel.ContactNo = model.ContactNo;
+                _VehicleOwnerDetailsModel.Address = model.Address;
+                _VehicleOwnerDetailsModel.City = model.City;
+                _VehicleOwnerDetailsModel.Pincode = model.Pincode;
+                _VehicleOwnerDetailsModel.State = model.State;
+                _VehicleOwnerDetailsModel.Country = model.Country;
+
+                _db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

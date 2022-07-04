@@ -74,5 +74,44 @@ namespace WebApplication.Controllers
             }
             return View();
         }
+
+
+        public ActionResult Edit(int id)
+        {
+            VehicleOwnerDetailsModel model = new VehicleOwnerDetailsModel();
+            var response = client.GetAsync(baseAddress + "/VehicleOwnerDetail/GelVehicleOwnerDetailsByOwnerId?OwnerId=" + id).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+
+                //UserModel UserResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserModel>(data);
+                model = JsonConvert.DeserializeObject<VehicleOwnerDetailsModel>(data);
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(VehicleOwnerDetailsModel model)
+        {
+            string strData = JsonConvert.SerializeObject(model);
+            StringContent content = new StringContent(strData, Encoding.UTF8, "application/json");
+            var response = client.PostAsync(client.BaseAddress + "/VehicleOwnerDetail/UpdateVehicleOwnerDetails", content).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                if (response.Content.ReadAsStringAsync().Result != "null")
+                {
+                    TempData["SuccessMessage"] = "Vehicle Owner Updated Successfully.";
+                }
+                else
+                {
+                    ViewBag.ErroMsg = "Error In Inserting.";
+                }
+            }
+            else
+            {
+                ViewBag.ErroMsg = "Error In Inserting.";
+            }
+            return View();
+        }
     }
 }

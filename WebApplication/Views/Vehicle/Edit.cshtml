@@ -7,6 +7,16 @@
 
 <h2>Edit</h2>
 
+@if (TempData["SuccessMessage"] != null)
+{
+
+    <script>
+
+        var v1 = "Vehicle Updated Successfully.";
+        alert(v1);
+        window.location.href = '/Vehicle/Index/';
+    </script>
+}
 
 @using (Html.BeginForm())
 {
@@ -77,11 +87,18 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Update" class="btn btn-default" />
+                @{ 
+                    if (!string.IsNullOrEmpty(ViewBag.ErroMsg))
+                    {
+                        <span style="color:red">@ViewBag.ErroMsg</span>
+                    }
+
+                }
             </div>
         </div>
     </div>
-}
+                    }
 
 <div>
     @Html.ActionLink("Back to List", "Index")

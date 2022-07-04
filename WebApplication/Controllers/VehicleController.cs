@@ -173,6 +173,46 @@ namespace WebApplication.Controllers
         }
 
 
+        [HttpPost]
+        public ActionResult Edit(VehicleDetailsModel model)
+        {
+            try
+            {
+                UserModel _UserModel = new UserModel();
+                _UserModel = (UserModel)Session["UserModel"];
+                model.UserId = _UserModel.UserId;
+
+                string strData = JsonConvert.SerializeObject(model);
+                StringContent content = new StringContent(strData, Encoding.UTF8, "application/json");
+                var response = client.PostAsync(client.BaseAddress + "/VehicleDetails/UpdateVehicleDetails", content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    if (response.Content.ReadAsStringAsync().Result != "null")
+                    {
+                        TempData["SuccessMessage"] = "Vehicle Updated Successfully.";
+
+                    }
+                    else
+                    {
+                        ViewBag.ErroMsg = "Error In Updating.";
+                       
+                    }
+                }
+                else
+                {
+                    ViewBag.ErroMsg = "Error In Updating.";
+                    
+                }
+            }
+            catch (Exception)
+            {
+                ViewBag.ErroMsg = "Error In Updating.";               
+            }
+
+
+            return View(); 
+        }
+
         // GET: Vehicle
         [HttpPost]
         public ActionResult Index(FormCollection collection)
