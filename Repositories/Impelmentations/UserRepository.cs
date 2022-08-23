@@ -47,6 +47,28 @@ namespace Repositories.Impelmentations
             throw new NotImplementedException();
         }
 
+        private string GenerateJSONWebToken(UserModel userInfo)
+        {
+            //var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            //var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            //var claims = new[] {
+            //                 new Claim(JwtRegisteredClaimNames.Sub, userInfo.Name),
+            //                 new Claim(JwtRegisteredClaimNames.Email, userInfo.Email),
+            //                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            //                 };
+
+            //var token = new JwtSecurityToken(_config["Jwt:Issuer"],
+            //                                _config["Jwt:Audience"],
+            //                                claims,
+            //                                expires: DateTime.UtcNow.AddMinutes(60), //token expiry minutes
+            //                                signingCredentials: credentials);
+
+            //return new JwtSecurityTokenHandler().WriteToken(token);
+            return "";
+        }
+
+
         public UserModel ValidateUser(string Email, string Password)
         {
             var user = _db.tblLogins.Where(u => u.EmailId.ToLower() == Email.ToLower() && u.Password == Password).FirstOrDefault();

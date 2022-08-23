@@ -9,3 +9,4 @@ H:\GitRepo\Models\bin\Debug\Models.pdb
 H:\GitRepo\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 H:\GitRepo\Models\obj\Debug\Models.dll
 H:\GitRepo\Models\obj\Debug\Models.pdb
+H:\GitRepo\Models\obj\Debug\Models.csprojAssemblyReference.cache

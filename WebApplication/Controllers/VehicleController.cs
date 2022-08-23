@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Net.Http;
 using System.Text;
 using System.Web.Mvc;
+using System.Web.Services;
 using WebApplication.CustomeAttributes;
 
 namespace WebApplication.Controllers
@@ -32,8 +33,33 @@ namespace WebApplication.Controllers
         // GET: Vehicle
         public ActionResult Index()
         {
+
+            //UserModel _UserModel = new UserModel();
+            //_UserModel = (UserModel)Session["UserModel"];
+
+            //ViewBag.UserID = _UserModel.UserId;
+
+            IEnumerable<VehicleDetailsModel> model = new List<VehicleDetailsModel>();
+            //var response = client.GetAsync(baseAddress + "/VehicleDetails/GelAllVehicleDetailsByUserId?UserId=" + _UserModel.UserId).Result;
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    var data = response.Content.ReadAsStringAsync().Result;
+
+            //    //UserModel UserResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserModel>(data);
+            //    model = JsonConvert.DeserializeObject<IEnumerable<VehicleDetailsModel>>(data);
+            //}
+            //return View(model);
+            return View();
+        }
+
+        // GET: Vehicle
+        public IEnumerable<VehicleDetailsModel> GetAllVehicleData()
+        {
+
             UserModel _UserModel = new UserModel();
             _UserModel = (UserModel)Session["UserModel"];
+
+            ViewBag.UserID = _UserModel.UserId;
 
             IEnumerable<VehicleDetailsModel> model = new List<VehicleDetailsModel>();
             var response = client.GetAsync(baseAddress + "/VehicleDetails/GelAllVehicleDetailsByUserId?UserId=" + _UserModel.UserId).Result;
@@ -44,9 +70,58 @@ namespace WebApplication.Controllers
                 //UserModel UserResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserModel>(data);
                 model = JsonConvert.DeserializeObject<IEnumerable<VehicleDetailsModel>>(data);
             }
-            return View(model);
+            return model;
         }
 
+        #region JavaScript Calling Methods
+        public string GetAllVehicleDataNew()
+        {
+
+            UserModel _UserModel = new UserModel();
+            _UserModel = (UserModel)Session["UserModel"];
+
+            ViewBag.UserID = _UserModel.UserId;
+
+            IEnumerable<VehicleDetailsModel> model = new List<VehicleDetailsModel>();
+            var response = client.GetAsync(baseAddress + "/VehicleDetails/GelAllVehicleDetailsByUserId?UserId=" + _UserModel.UserId).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+
+                //UserModel UserResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<UserModel>(data);
+                //model = JsonConvert.DeserializeObject<IEnumerable<VehicleDetailsModel>>(data);
+                return data;
+            }
+            return "";
+        }
+        public string SearchData(string txtSearchRegNo, string txtSearchOwnerName, string txtSearchModelNo, string txtSearchMakeYear)
+        {
+            UserModel _UserModel = new UserModel();
+            _UserModel = (UserModel)Session["UserModel"];
+
+            VehicleSearchModel _VehicleSearchModel = new VehicleSearchModel();
+            _VehicleSearchModel.UserId = _UserModel.UserId;
+            _VehicleSearchModel.OwnerName = string.IsNullOrEmpty(txtSearchOwnerName) ? null : txtSearchOwnerName;
+            _VehicleSearchModel.RegNo = string.IsNullOrEmpty(txtSearchRegNo) ? null : txtSearchRegNo;
+            _VehicleSearchModel.MakeYear = string.IsNullOrEmpty(txtSearchMakeYear) ? null : txtSearchMakeYear;
+            _VehicleSearchModel.ModelNo = string.IsNullOrEmpty(txtSearchModelNo) ? null : txtSearchModelNo;
+
+            string strData = JsonConvert.SerializeObject(_VehicleSearchModel);
+            StringContent content = new StringContent(strData, Encoding.UTF8, "application/json");
+            IEnumerable<VehicleDetailsModel> model = new List<VehicleDetailsModel>();
+            var response = client.PostAsync(baseAddress + "/VehicleDetails/GelSearchAllVehicleDetailsByUserId", content).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var data = response.Content.ReadAsStringAsync().Result;
+                //model = JsonConvert.DeserializeObject<IEnumerable<VehicleDetailsModel>>(data);
+                return data;
+            }
+            // return View(model);
+
+
+            return "";
+        }
+        #endregion
         public ActionResult Details(int id)
         {
             VehicleDetailsModel model = new VehicleDetailsModel();
@@ -213,6 +288,7 @@ namespace WebApplication.Controllers
             return View(); 
         }
 
+       
         // GET: Vehicle
         [HttpPost]
         public ActionResult Index(FormCollection collection)
@@ -246,6 +322,11 @@ namespace WebApplication.Controllers
 
         }
 
+        [WebMethod]
+        public static void BindEmployees()
+        {
 
+        }
+
+        }
     }
-}

@@ -264,13 +264,14 @@
     <Content Include="Views\Vehicle\Create.cshtml" />
     <Content Include="Views\VehicleOwner\Create.cshtml" />
     <Content Include="Views\VehicleOwner\Index.cshtml" />
-    <Content Include="Views\Vehicle\Index.cshtml" />
+    <Content Include="Views\Vehicle\Index_Backup.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Vehicle\Edit.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\Vehicle\Details.cshtml" />
     <Content Include="Views\Vehicle\Search_.cshtml" />
     <Content Include="Views\VehicleOwner\Edit.cshtml" />
+    <Content Include="Views\Vehicle\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
