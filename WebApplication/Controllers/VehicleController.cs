@@ -141,7 +141,10 @@ namespace WebApplication.Controllers
             var response = client.DeleteAsync(baseAddress + "/VehicleDetails/DeleteVehicleDetailsByVehicleId?VehicleId=" + id).Result;
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index");
+
+                TempData["SuccessMessage"] = "Vehicle Deleted Successfully.";
+                return RedirectToAction("Index", "Vehicle");
+                // return RedirectToAction("Index");
             }
             return RedirectToAction("Index");
         }
@@ -265,7 +268,7 @@ namespace WebApplication.Controllers
                     if (response.Content.ReadAsStringAsync().Result != "null")
                     {
                         TempData["SuccessMessage"] = "Vehicle Updated Successfully.";
-
+                        return RedirectToAction("Index","Vehicle");
                     }
                     else
                     {

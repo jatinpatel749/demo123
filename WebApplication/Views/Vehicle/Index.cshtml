@@ -1,8 +1,47 @@
 ﻿@model IEnumerable<Models.VehicleDetailsModel>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'>
 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js'></script>
+<script id="rendered-js">
+    // Set the options that I want
+    toastr.options = {
+        "closeButton": true,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+
+
+</script>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    if (Convert.ToString(TempData["SuccessMessage"]) == "Vehicle Updated Successfully.")
+    {
+        <script type="text/javascript">
+            toastr.success("Vehicle Updated Successfully.");
+        </script>
+    }
+    else if (Convert.ToString(TempData["SuccessMessage"]) == "Vehicle Deleted Successfully.")
+    {
+        <script type="text/javascript">
+            toastr.success("Vehicle Deleted Successfully.");
+        </script>
+    }
+
 }
 
 
@@ -126,12 +165,12 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @*<input type="submit" value="Search" class="form-control btn btn-primary" />
-                <input type="button" value="Reset" class="form-control btn btn-warning" onclick="location.href='@Url.Action("Index", "Vehicle")'" />*@
+                    <input type="button" value="Reset" class="form-control btn btn-warning" onclick="location.href='@Url.Action("Index", "Vehicle")'" />*@
 
 
 
                 <input id="Button1" type="button" value="Search" class="form-control btn btn-primary" onclick="GetSearchData();" />
-                <input id="Button1" type="button"value="Reset" class="form-control btn btn-warning" onclick="GetAllData();" />
+                <input id="Button1" type="button" value="Reset" class="form-control btn btn-warning" onclick="GetAllData();" />
             </div>
         </div>
     </div>
@@ -142,6 +181,9 @@
 
 <script type="text/javascript">
     window.onload = function () {
+
         GetAllData();
     }
 </script>
+
+
